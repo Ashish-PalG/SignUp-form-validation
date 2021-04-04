@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+</head>
+<body>
+    <table>
+        <form>
+            <tr>
+                <td><label>FullName:</label></td>
+                <td><input type="name" id="name"></td>
+                <span id="nameerr"></span>
+            </tr>
+            <tr>
+                <td><label>Email:</label></td>
+                <td><input type="email" id="email"></td>
+                <span id="emailerr"></span>
+            </tr>
+            <tr>
+                <td><label>Phone:</label></td>
+                <td><input type="number" id="phone"></td>
+                <span id="phoneerr"></span>
+            </tr>
+            <tr>
+                <td><label>Password:</label></td>
+                <td><input type="password" id="password"></td>
+                <span id="passerr"></span>
+            </tr>
+            <tr>
+                <td><label>Confirm Password:</label></td>
+                <td><input type="tel" id="cpassword"></td>
+                <span id="cpasserr"></span>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Signup"></td>
+            </tr>
+        </form>
+    </table>
+    <script type="text/javascript">
+    </script>
+</body>
+<!--Email regex code 
+   ^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$
+-->
+</html>
