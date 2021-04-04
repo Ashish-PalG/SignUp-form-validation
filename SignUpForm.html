@@ -8,31 +8,31 @@
 </head>
 <body>
     <table>
-        <form>
+        <form onsubmit="return validate()">
             <tr>
                 <td><label>FullName:</label></td>
-                <td><input type="name" id="name"></td>
-                <span id="nameerr"></span>
+                <td><input type="name" id="name" required></td>
+                <td><span id="nameerr"></span></td>
             </tr>
             <tr>
                 <td><label>Email:</label></td>
-                <td><input type="email" id="email"></td>
-                <span id="emailerr"></span>
+                <td><input type="email" id="email" required></td>
+                <td><span id="emailerr"></span></td>
             </tr>
             <tr>
                 <td><label>Phone:</label></td>
-                <td><input type="number" id="phone"></td>
-                <span id="phoneerr"></span>
+                <td><input type="tel" id="phone" required></td>
+                <td><span id="phoneerr"></span></td>
             </tr>
             <tr>
                 <td><label>Password:</label></td>
-                <td><input type="password" id="password"></td>
-                <span id="passerr"></span>
+                <td><input type="password" id="password" required></td>
+                <td><span id="passerr"></span></td>
             </tr>
             <tr>
                 <td><label>Confirm Password:</label></td>
-                <td><input type="tel" id="cpassword"></td>
-                <span id="cpasserr"></span>
+                <td><input type="password" id="cpassword" required></td>
+                <td><span id="cpasserr"></span></td>
             </tr>
             <tr>
                 <td><input type="submit" value="Signup"></td>
@@ -40,6 +40,55 @@
         </form>
     </table>
     <script type="text/javascript">
+    function validate(){
+        var uname=document.getElementById("name").value;
+        var email=document.getElementById("email").value;
+        var phone=document.getElementById("phone").value;
+        var pass=document.getElementById("password").value;
+        var cpass=document.getElementById("cpassword").value;
+
+        var namechecker= /^[A-Za-z. ]{3,30}$/;
+        var emailchecker=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+        var phonechecker=/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/;
+        var passchecker=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+        if(namechecker.test(uname)){
+            document.getElementById('nameerr').innerHTML="";
+        }else{
+            document.getElementById('nameerr').innerHTML="*Invalid name";
+            return false;
+        }
+
+        if(emailchecker.test(email)){
+            document.getElementById('emailerr').innerHTML="";
+        }else{
+            document.getElementById('emailerr').innerHTML="*Invalid email";
+            return false;
+        }
+
+        if(phonechecker.test(phone)){
+            document.getElementById('phoneerr').innerHTML="";
+        }else{
+            document.getElementById('phoneerr').innerHTML="*Invalid number";
+            return false;
+        }
+
+        if(passchecker.test(pass)){
+            document.getElementById('passerr').innerHTML="";
+        }else{
+            document.getElementById('passerr').innerHTML="*Invalid password";
+            return false;
+        }
+
+        if(cpass.match(pass)){
+            document.getElementById('cpasserr').innerHTML="";
+        }else{
+            document.getElementById('cpasserr').innerHTML="*Password not matching";
+            return false;
+        }
+        
+    }
+
     </script>
 </body>
 <!--Email regex code 
